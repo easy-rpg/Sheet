@@ -21,4 +21,19 @@ NA
 execute o comando `npm install` dentro da pasta do projeto
 
 ## Rodando
+### Dev
+execute o comendo `npm run dev`
+### Serve
 execute o comando `npm run serve`
+### Build
+execute o comando `npm run build`
+
+## Tutoriais
+- [vue-js-2-quickstart-tutorial-2017](https://codingthesmartway.com/vue-js-2-quickstart-tutorial-2017/)
+- *[vue-cli-tutorial-2018-example-scratch](https://appdividend.com/2018/02/09/vue-cli-tutorial-2018-example-scratch/)*
+- [vue-js-tutorial-iniciando-com-componentes](https://medium.com/@kessiacastro/vue-js-tutorial-iniciando-com-componentes-4445b3eb0ffe)
+- [build-an-online-shop-with-vue](https://scotch.io/courses/build-an-online-shop-with-vue/vue-cli)
+- [build-a-to-do-app-with-vue-js-2](https://scotch.io/tutorials/build-a-to-do-app-with-vue-js-2)
+
+## Docs
+- [bootstrap vue](https://bootstrap-vue.js.org/docs)
