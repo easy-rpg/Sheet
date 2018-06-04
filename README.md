@@ -18,4 +18,7 @@ NA
 - Rode o comando `vue create Sheet` para criar a pasta do projeto
 
 ## Configurando
-rode o comando `npm install`
+execute o comando `npm install` dentro da pasta do projeto
+
+## Rodando
+execute o comando `npm run serve`
