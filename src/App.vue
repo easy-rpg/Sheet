@@ -1,62 +1,54 @@
 <template>
-    <v-app>
-        <v-navigation-drawer v-model="drawer" temporary app>
-            <v-toolbar flat>
-                <v-list>
-                    <v-list-tile>
-                        <v-list-tile-title class="title">
-                            Menu
-                        </v-list-tile-title>
-                    </v-list-tile>
-                </v-list>
-            </v-toolbar>
-            <v-divider></v-divider>
-            <v-list dense class="pt-0">
-                <v-list-tile v-for="item in items" :key="item.title" :to="item.to">
-                    <v-list-tile-action>
-                        <v-icon>{{ item.icon }}</v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-content>
-                        <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-                    </v-list-tile-content>
-                </v-list-tile>
-            </v-list>
-        </v-navigation-drawer>
-        <v-toolbar app dark fixed>
-            <v-toolbar-side-icon @click.stop="drawer = !drawer "></v-toolbar-side-icon>
-            <v-toolbar-title>Aula SPA</v-toolbar-title>
-            <v-spacer></v-spacer>
-        </v-toolbar>
-        <v-container fluid grid-list-xl>
-            <router-view></router-view>
-        </v-container>
-    </v-app>
+  <div id="app">
+    <header>
+      <span>Vue.js PWA</span>
+    </header>
+    <main>
+      <img src="./assets/logo.png" alt="Vue.js PWA">
+      <router-view></router-view>
+    </main>
+  </div>
 </template>
 
 <script>
-/* eslint-disable */
-
 export default {
-    name: 'app',
-    data () {
-        return {
-            drawer: false,
-            items: [
-                { title: 'Home', icon: 'dashboard', to: '/' },
-                { title: 'Sobre', icon: 'info', to:'/sobre' },
-            ]
-        }
-    }
+  name: 'app'
 }
 </script>
 
 <style>
+body {
+  margin: 0;
+}
+
 #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+}
+
+main {
+  text-align: center;
+  margin-top: 40px;
+}
+
+header {
+  margin: 0;
+  height: 56px;
+  padding: 0 16px 0 24px;
+  background-color: #35495E;
+  color: #ffffff;
+}
+
+header span {
+  display: block;
+  position: relative;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: .02em;
+  font-weight: 400;
+  box-sizing: border-box;
+  padding-top: 16px;
 }
 </style>
