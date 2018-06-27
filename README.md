@@ -3,16 +3,11 @@
 
 ## Instalando
 ### Npm
-#### Windows
 Instale o NPM do [site oficial](https://www.npmjs.com/get-npm)
-##### Tutoriais
 
+#### Tutoriais
 - [install nodejs npm windows](http://blog.teamtreehouse.com/install-node-js-npm-windows)
 
-#### Linux
-NA
-##### Tutoriais
-NA
 ### Vue
 - Instale o vue-cli com o comando `npm install -g @vue/cli` e o vue-init com o comando `npm install -g @vue/cli-init`
 - Rode o comando `vue init pwa Sheet` para criar a pasta do projeto
@@ -31,6 +26,9 @@ npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
 ```
+
+## Deploy
+Rode o comando `npm run build`, renomeie a pasta `dist` para `docs` e dê commit e push
 
 ## Tutoriais
 - [vue-js-2-quickstart-tutorial-2017](https://codingthesmartway.com/vue-js-2-quickstart-tutorial-2017/)
