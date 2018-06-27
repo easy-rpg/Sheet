@@ -28,11 +28,6 @@ module.exports = {
     dev: {
         env: require('./dev.env'),
         port: 8080,
-        // https: {
-        //     key: fs.readFileSync(path.join(__dirname, '../static/certs/server.key'), 'utf8'),
-        //     cert: fs.readFileSync(path.join(__dirname, '../static/certs/server.cert'), 'utf8'),
-        // },
-        // https: true,
         autoOpenBrowser: true,
         assetsSubDirectory: 'static',
         assetsPublicPath: '/',

@@ -57,24 +57,6 @@ Object.keys(proxyTable).forEach(function (context) {
 // handle fallback for HTML5 history API
 app.use(require('connect-history-api-fallback')())
 
-
-// const forceSSL = function() {
-//   return function (req, res, next) {
-//     if (req.headers['x-forwarded-proto'] !== 'https') {
-//       return res.redirect(
-//        ['https://', req.get('Host'), req.url].join('')
-//       );
-//     }
-//     next();
-//   }
-// }
-//
-// // Instruct the app
-// // to use the forceSSL
-// // middleware
-// app.use(forceSSL());
-
-
 // serve webpack bundle output
 app.use(devMiddleware)
 
@@ -99,15 +81,7 @@ devMiddleware.waitUntilValid(() => {
   _resolve()
 })
 
-const https = require('https')
-const fs = require('fs')
-
 const server = app.listen(port)
-// const server = https.createServer({
-//     key: fs.readFileSync('./static/certs/server.key'),
-//     cert: fs.readFileSync('./static/certs/server.cert')
-// }, app).listen(port);
-
 
 module.exports = {
   ready: readyPromise,
