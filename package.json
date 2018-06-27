@@ -5,6 +5,7 @@
     "author": "RodrigoNdeC <rodrigondec@gmail.com>",
     "private": true,
     "scripts": {
+        "deploy": "npm run build; push-dir --dir=dist --branch=gh-pages --cleanup",
         "serve": "serve dist -p 8080",
         "dev": "node build/dev-server.js",
         "start": "node build/dev-server.js",
