@@ -44,6 +44,7 @@ npm run build --report
 - https://medium.com/matheus-rossi/pwa-vue-js-quasar-ac97d775fcca
 - https://blog.sicara.com/a-progressive-web-application-with-vue-js-webpack-material-design-part-1-c243e2e6e402
 - https://blog.pusher.com/getting-started-pwa-vue/
+- https://pusher.com/tutorials/pwa-vuejs/
 ## Docs
 - [bootstrap vue](https://bootstrap-vue.js.org/docs)
 - [webpack](http://vuejs-templates.github.io/webpack/)
