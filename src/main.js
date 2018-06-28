@@ -5,9 +5,11 @@ import App from './App'
 import router from './router'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.css'
+import VueSession from 'vue-session'
 
 Vue.config.productionTip = false
 
+Vue.use(VueSession)
 Vue.use(Vuetify)
 
 /* eslint-disable no-new */
