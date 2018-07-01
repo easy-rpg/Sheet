@@ -10,26 +10,29 @@ export default {
     login: function (context,creds, redirect) {
         context.$http.post(LOGIN_URL, creds).then(function (response) {
             if (response.status === 200) {
+                context.$session.destroy()
                 context.$session.start()
                 context.$session.set('jwt', response.data.token)
                 axios.defaults.headers.common['Authorization'] = 'JWT ' + response.data.token
-
-                context.$http.get(API_URL+'user/token/').then(function (response) {
-                    if (response.status === 200) {
-                        context.$session.set('username', response.data.username)
-                        context.$session.set('id_user', response.data.id)
-                    }
-                }, function (err) {
-                    console.log('err', err)
-                })
-
+            }
+            return context.$http
+        }, function (err) {
+            console.log('err', err)
+        }).then(function (){
+            context.$http.get(API_URL+'user/token/').then(function (response) {
+                if (response.status === 200) {
+                    context.$session.set('username', response.data.username)
+                    context.$session.set('id_user', response.data.id)
+                }
                 // Redirect to a specified route
                 if(redirect) {
                     context.$router.push(redirect)
                 }
-            }
-        }, function (err) {
-            console.log('err', err)
+            }, function (err) {
+                console.log('err', err)
+            }).then(function (){
+                console.log({'id_user': context.$session.get('id_user'), 'username': context.$session.get('username'), 'jwt': context.$session.get('jwt')})
+            })
         })
     },
 
@@ -56,10 +59,10 @@ export default {
     },
 
     checkAuth(context) {
-        if (context.$session.exists() && !context.$session.has('jws')) {
+        if (context.$session.exists() && !context.$session.has('jwt')) {
             context.$session.destroy()
         }
-        if(context.$session.has('jws')) {
+        if(context.$session.has('jwt')) {
             this.user.authenticated = true
         }
         else {
@@ -75,7 +78,7 @@ export default {
     },
 
     loggedIn(context) {
-        return context.$session.exists() && context.$session.has('jws')
+        return context.$session.exists() && context.$session.has('jwt')
     },
 
     getUserName(context) {
