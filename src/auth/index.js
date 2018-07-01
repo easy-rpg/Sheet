@@ -50,41 +50,5 @@ export default {
         }).error((err) => {
             context.error = err
         })
-    },
-
-    // To log out, we just need to remove the token
-    logout(context, redirect) {
-        context.$session.destroy()
-        context.$router.push(redirect)
-    },
-
-    checkAuth(context) {
-        if (context.$session.exists() && !context.$session.has('jwt')) {
-            context.$session.destroy()
-        }
-        if(context.$session.has('jwt')) {
-            this.user.authenticated = true
-        }
-        else {
-            this.user.authenticated = false
-        }
-    },
-
-    // The object to be passed as a header for authenticated requests
-    getAuthHeader(context) {
-        return {
-            'Authorization': 'JWT ' + context.$session.get('jwt')
-        }
-    },
-
-    loggedIn(context) {
-        return context.$session.exists() && context.$session.has('jwt')
-    },
-
-    getUserName(context) {
-        if(context.$session.exists() && context.$session.has('username')) {
-            return context.$session.get('username')
-        }
-        return false
     }
 }
