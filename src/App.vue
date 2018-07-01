@@ -23,10 +23,17 @@
             </v-list>
         </v-navigation-drawer>
         <v-toolbar app dark fixed>
-            <v-toolbar-side-icon @click.stop="drawer = !drawer "></v-toolbar-side-icon>
+            <div v-if="loggedIn">
+                <v-toolbar-side-icon @click.stop="drawer = !drawer "></v-toolbar-side-icon>
+            </div>
             <v-spacer></v-spacer>
             <div v-if="loggedIn">
                 <userbar></userbar>
+            </div>
+            <div v-else>
+                <v-btn key='login-button' to="/login">
+                    Login
+                </v-btn>
             </div>
         </v-toolbar>
         <v-toolbar-side-icon @click.stop="drawer = !drawer "></v-toolbar-side-icon>
