@@ -4,7 +4,8 @@ import Router from 'vue-router'
 import HomeView from '@/views/HomeView'
 import SobreView from '@/views/SobreView'
 import HelloWorld from '@/components/HelloWorld'
-import CardList from '@/components/CardList'
+import Login from '@/components/Login'
+import Register from '@/components/Register'
 
 Vue.use(Router)
 
@@ -13,22 +14,34 @@ export default new Router({
 		{
 			path: '/',
 			name: 'HomeView',
-			component: HomeView
+			component: HomeView,
+			meta: {
+				auth: false
+			}
 		},
 		{
-			path: '/content',
-			name: 'CardList',
-			component: CardList
+			path: '/login',
+			name: 'Login',
+			component: Login,
+			meta: {
+				auth: false
+			}
 		},
 		{
-			path: '/sobre',
-			name: 'SobreView',
-			component: SobreView
+			path: '/register',
+			name: 'Register',
+			component: Login,
+			meta: {
+				auth: false
+			}
 		},
 		{
 			path: '/hello',
 			name: 'HelloView',
-			component: HelloWorld
+			component: HelloWorld,
+			meta: {
+				auth: true
+			}
 		}
 	]
 })
