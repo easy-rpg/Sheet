@@ -1,5 +1,5 @@
 <template lang="html">
-    <v-menu v-if="username" :nudge-width="100">
+    <v-menu :nudge-width="100">
         <v-toolbar-title slot="activator">
             <v-btn flat>
                 <span>{{ username }}&nbsp;</span>
@@ -33,7 +33,13 @@ export default {
     name: 'userbar',
     data (){
         return {
-            username: ''
+            username: this.$session.get('username')
+        }
+    },
+    methods: {
+        logout: function() {
+            this.$session.destroy()
+            this.$router.push('/login')
         }
     }
 }

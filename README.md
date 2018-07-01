@@ -36,6 +36,8 @@ Rode o comando `npm run build`, renomeie a pasta `dist` para `docs` e dê commit
 - [vue-js-tutorial-iniciando-com-componentes](https://medium.com/@kessiacastro/vue-js-tutorial-iniciando-com-componentes-4445b3eb0ffe)
 - [build-an-online-shop-with-vue](https://scotch.io/courses/build-an-online-shop-with-vue/vue-cli)
 - [build-a-to-do-app-with-vue-js-2](https://scotch.io/tutorials/build-a-to-do-app-with-vue-js-2)
+### API, request
+- https://vuejs.org/v2/cookbook/using-axios-to-consume-apis.html
 ### pwa
 - https://www.telerik.com/blogs/gif-guide-creating-a-pwa-with-vue-and-kendo-ui
 - https://www.telerik.com/blogs/building-pwas-with-vuejs
