@@ -31,7 +31,7 @@ export default {
             }, function (err) {
                 console.log('err', err)
             }).then(function (){
-                console.log({'id_user': context.$session.get('id_user'), 'username': context.$session.get('username'), 'jwt': context.$session.get('jwt')})
+                // console.log({'id_user': context.$session.get('id_user'), 'username': context.$session.get('username'), 'jwt': context.$session.get('jwt')})
             })
         })
     },
