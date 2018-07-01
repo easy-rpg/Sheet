@@ -1,27 +1,55 @@
 <template>
-
+    <div class="col-sm-4 col-sm-offset-4">
+        <h2>Log In</h2>
+        <p>Log in to your account to get some great quotes.</p>
+        <div class="alert alert-danger" v-if="error">
+            <p>{{ error }}</p>
+        </div>
+        <div class="form-group">
+            <input
+            type="text"
+            class="form-control"
+            placeholder="Enter your username"
+            v-model="credentials.username"
+            >
+        </div>
+        <div class="form-group">
+            <input
+            type="password"
+            class="form-control"
+            placeholder="Enter your password"
+            v-model="credentials.password"
+            >
+        </div>
+        <button class="btn btn-primary" @click="submit()">Access</button>
+    </div>
 </template>
 
 <script>
+import auth from '../auth'
+
 export default {
-    name: 'Login',
+    data (){
+        return {
+            credentials:
+            {
+                username: '',
+                password: '',
+            },
+            error: ''
+        }
+    },
     methods: {
-        login: function () {
-            this.$http.post('http://somehost/user/login',
-            username: this.username,
-            password: this.password
-        }).then(function (response) {
-            if (response.status === 200 && 'token' in response.body) {
-                this.$session.start()
-                this.$session.set('jwt', response.body.token)
-                Vue.http.headers.common['Authorization'] = 'Token ' + response.body.token
-                this.$router.push('/')
+        submit() {
+            var credentials = {
+                username: this.credentials.username,
+                password: this.credentials.password
             }
-        }, function (err) {
-            console.log('err', err)
-        })
+            // We need to pass the component's this context
+            // to properly make use of http in the auth service
+            auth.login(this, credentials, '/')
+        }
     }
-}
 }
 </script>
 
