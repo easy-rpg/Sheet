@@ -25,33 +25,9 @@
         <v-toolbar app dark fixed>
             <v-toolbar-side-icon @click.stop="drawer = !drawer "></v-toolbar-side-icon>
             <v-spacer></v-spacer>
-            <v-menu :nudge-width="100">
-                <v-toolbar-title slot="activator">
-                    <v-btn flat>
-                        <span>{{ nome }}&nbsp;</span>
-                        <v-icon>fas fa-caret-down</v-icon>
-                    </v-btn>
-                </v-toolbar-title>
-                <v-list>
-                    <v-list-tile key="Perfil" to="/">
-                        <v-list-tile-action>
-                            <v-icon>fas fa-user</v-icon>
-                        </v-list-tile-action>
-                        <v-list-tile-content>
-                            <v-list-tile-title>Perfil</v-list-tile-title>
-                        </v-list-tile-content>
-                    </v-list-tile>
-                    <v-divider ></v-divider>
-                    <v-list-tile key="Sair" to="/">
-                        <v-list-tile-action>
-                            <v-icon>fas fa-sign-out-alt</v-icon>
-                        </v-list-tile-action>
-                        <v-list-tile-content>
-                            <v-list-tile-title>Sair</v-list-tile-title>
-                        </v-list-tile-content>
-                    </v-list-tile>
-                </v-list>
-            </v-menu>
+            <div v-if="loggedIn">
+                <userbar></userbar>
+            </div>
         </v-toolbar>
         <v-toolbar-side-icon @click.stop="drawer = !drawer "></v-toolbar-side-icon>
         <v-container fluid grid-list-xl>
@@ -61,12 +37,14 @@
 </template>
 
 <script>
+import auth from '@/auth'
+import UserBar from '@/components/UserBar'
 export default {
     name: 'app',
     data () {
         return {
-            nome: 'rodrigondec',
             drawer: false,
+            loggedIn: this.$session.exists(),
             routes: [
                 { title: 'Home', icon: 'fas fa-home', to: '/' },
                 { title: 'Conteúdo', icon: 'fas fa-user', to:'/content' },
@@ -74,6 +52,23 @@ export default {
                 { title: 'Hello World', icon: 'home', to:'/hello' },
             ]
         }
+    },
+    // methods: {
+    //     loggedIn: function() {
+    //         return auth.loggedIn(this)
+    //     }
+    // },
+    // computed: {
+    //     loggedIn: function() {
+    //         return this.$session.exists()
+    //         return
+    //     }
+    // },
+    components: {
+        userbar: UserBar
+    },
+    beforeUpdate: function () {
+        this.loggedIn = this.$session.exists()
     }
 }
 </script>
