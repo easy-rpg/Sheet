@@ -6,10 +6,14 @@ import router from './router'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.css'
 import VueSession from 'vue-session'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
+Vue.use(VueAxios, axios)
 
 Vue.config.productionTip = false
 
-Vue.use(VueSession)
+Vue.use(VueSession, {persist: true})
 Vue.use(Vuetify)
 
 /* eslint-disable no-new */
