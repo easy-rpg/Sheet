@@ -54,9 +54,9 @@ export default {
             loggedIn: this.$session.exists(),
             routes: [
                 { title: 'Home', icon: 'fa-home', to: '/' },
-                { title: 'Conteúdo', icon: 'fa-user', to:'/content' },
-                { title: 'Sobre', icon: 'fa-info-circle', to:'/sobre' },
-                { title: 'Hello World', icon: 'fa-home', to:'/hello' },
+                { title: 'Camapnhas', icon: 'fa-dice', to:'/campanhas' },
+                { title: 'Personagens', icon: 'fa-user-shield', to:'/personagens' },
+                { title: 'Wiki', icon: 'fa-info-circle', to:'/wiki' },
             ]
         }
     },
