@@ -2,8 +2,8 @@ import axios from 'axios'
 
 // URL and endpoint constants
 const API_URL = 'https://sheet-api.herokuapp.com/'
-const SIGNUP_URL = API_URL + 'user/'
 const AUTH_URL = API_URL + 'auth/'
+const REGISTER_URL = API_URL + 'create_user/'
 
 export default {
     // Send a request to the login URL and save the returned JWT
@@ -15,7 +15,7 @@ export default {
                 context.$session.set('jwt', response.data.token)
                 axios.defaults.headers.common['Authorization'] = 'JWT ' + response.data.token
             }
-            return context.$http
+            // return context.$http
         }, function (err) {
             console.log('err', err)
         }).then(function (){
@@ -28,10 +28,12 @@ export default {
                 if(redirect) {
                     context.$router.push(redirect)
                 }
+                // return context.$http
             }, function (err) {
                 console.log('err', err)
             }).then(function (){
                 // console.log({'id_user': context.$session.get('id_user'), 'username': context.$session.get('username'), 'jwt': context.$session.get('jwt')})
+                // return context.$http
             })
         })
     },
