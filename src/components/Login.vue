@@ -9,8 +9,8 @@
                             <v-spacer></v-spacer>
                         </v-toolbar>
                         <v-card-text>
-                            <v-text-field v-model="credentials.username" prepend-icon="fa-user" name="username" label="username" type="text"></v-text-field>
-                            <v-text-field v-model="credentials.password" id="password" prepend-icon="fa-lock" name="password" label="Password" type="password"></v-text-field>
+                            <v-text-field v-model="credentials.username" prepend-icon="fa-user" name="username" label="Username" type="text"></v-text-field>
+                            <v-text-field v-model="credentials.password" id="password" prepend-icon="fa-lock" name="Password" label="Password" type="password"></v-text-field>
                         </v-card-text>
                         <v-card-actions>
                             <v-spacer></v-spacer>
