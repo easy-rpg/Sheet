@@ -16,8 +16,21 @@ export default {
                 axios.defaults.headers.common['Authorization'] = 'JWT ' + response.data.token
             }
             return context.$http
-        }, function (err) {
-            console.log('err', err)
+        }, function (error) {
+            if (error.response) {
+                // The request was made and the server responded with a status code
+                // that falls out of the range of 2xx
+                console.log({'data': error.response.data, 'status': error.response.status, 'headers': error.response.headers})
+            } else if (error.request) {
+                // The request was made but no response was received
+                // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+                // http.ClientRequest in node.js
+                console.log({'request': error.request})
+            } else {
+                // Something happened in setting up the request that triggered an Error
+                console.log({'Error': error.message})
+            }
+            console.log({'config': error.config});
         }).then(function (){
             context.$http.get(API_URL+'user/me/').then(function (response) {
                 if (response.status === 200) {
@@ -29,8 +42,21 @@ export default {
                     context.$router.push(redirect)
                 }
                 return context.$http
-            }, function (err) {
-                console.log('err', err)
+            }, function (error) {
+                if (error.response) {
+                    // The request was made and the server responded with a status code
+                    // that falls out of the range of 2xx
+                    console.log({'data': error.response.data, 'status': error.response.status, 'headers': error.response.headers})
+                } else if (error.request) {
+                    // The request was made but no response was received
+                    // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+                    // http.ClientRequest in node.js
+                    console.log({'request': error.request})
+                } else {
+                    // Something happened in setting up the request that triggered an Error
+                    console.log({'Error': error.message})
+                }
+                console.log({'config': error.config});
             }).then(function (){
                 // console.log({'id_user': context.$session.get('id_user'), 'username': context.$session.get('username'), 'jwt': context.$session.get('jwt')})
                 return context.$http
@@ -40,6 +66,7 @@ export default {
 
     register(context, creds, redirect) {
         context.$http.post(REGISTER_URL, creds).then(function (response) {
+            console.log(response)
             if (response.status === 200) {
                 context.$session.destroy()
                 context.$session.start()
@@ -47,10 +74,23 @@ export default {
                 context.$session.set('id_user', response.data.id_user)
             }
             return context.$http
-        }, function (err) {
-            console.log('err', err)
+        }, function (error) {
+            if (error.response) {
+                // The request was made and the server responded with a status code
+                // that falls out of the range of 2xx
+                console.log({'data': error.response.data, 'status': error.response.status, 'headers': error.response.headers})
+            } else if (error.request) {
+                // The request was made but no response was received
+                // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+                // http.ClientRequest in node.js
+                console.log({'request': error.request})
+            } else {
+                // Something happened in setting up the request that triggered an Error
+                console.log({'Error': error.message})
+            }
+            console.log({'config': error.config});
         }).then(function (){
-            context.$http.get(AUTH_URL, {'username': creds.username, 'password': creds.password}).then(function (response) {
+            context.$http.post(AUTH_URL, {'username': creds.username, 'password': creds.password}).then(function (response) {
                 if (response.status === 200) {
                     context.$session.set('jwt', response.data.token)
                     axios.defaults.headers.common['Authorization'] = 'JWT ' + response.data.token
@@ -59,13 +99,14 @@ export default {
                 if(redirect) {
                     context.$router.push(redirect)
                 }
-            return context.$http
+                return context.$http
             }, function (err) {
                 console.log('err', err)
             }).then(function (){
+                +
                 console.log({'id_user': context.$session.get('id_user'), 'username': context.$session.get('username'), 'jwt': context.$session.get('jwt')})
                 return context.$http
             })
-        })
+        }
     }
 }
