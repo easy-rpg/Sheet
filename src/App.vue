@@ -45,7 +45,7 @@
 
 <script>
 import auth from '@/auth'
-import UserBar from '@/components/UserBar'
+import UserBar from '@/components/Usuario/UserBar'
 export default {
     name: 'app',
     data () {
