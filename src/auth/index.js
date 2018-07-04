@@ -19,7 +19,7 @@ export default {
         }, function (err) {
             console.log('err', err)
         }).then(function (){
-            context.$http.get(API_URL+'user/token/').then(function (response) {
+            context.$http.get(API_URL+'user/me/').then(function (response) {
                 if (response.status === 200) {
                     context.$session.set('username', response.data.username)
                     context.$session.set('id_user', response.data.id)
