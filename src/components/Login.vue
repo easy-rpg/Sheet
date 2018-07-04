@@ -14,6 +14,9 @@
                         </v-card-text>
                         <v-card-actions>
                             <v-spacer></v-spacer>
+
+                            <v-btn color="info" to="/register">Register</v-btn>
+                            or
                             <v-btn color="dark" @click="submit()">Login</v-btn>
                         </v-card-actions>
                     </v-card>
@@ -21,7 +24,6 @@
             </v-layout>
         </v-container>
     </v-content>
-</template>
 </template>
 
 <script>
