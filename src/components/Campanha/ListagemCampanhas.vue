@@ -1,7 +1,11 @@
-<template lang="html">
-    <h1>Personagem X</h1>
-    <hr>
-    <p>Info</p>
+<template>
+    <div>
+        <h1>Listagem Campanhas</h1>
+        <hr>
+        <ul>
+            <li>Campanha 1</li>
+        </ul>
+    </div>
 </template>
 
 <script>
@@ -17,5 +21,5 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style>
 </style>

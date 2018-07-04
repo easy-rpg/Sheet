@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import auth from '../auth'
+import auth from '@/auth'
 
 export default {
     data (){
@@ -53,5 +53,5 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style>
 </style>

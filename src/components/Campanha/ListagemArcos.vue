@@ -1,9 +1,11 @@
-<template lang="html">
-    <h1>Listagem Campanhas</h1>
-    <hr>
-    <ul>
-        <li>Campanha 1</li>
-    </ul>
+<template>
+    <div>
+        <h1>Listagem Arcos</h1>
+        <hr>
+        <ul>
+            <li>Arco 1</li>
+        </ul>
+    </div>
 </template>
 
 <script>
@@ -19,5 +21,5 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style>
 </style>

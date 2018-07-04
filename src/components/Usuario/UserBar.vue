@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
     <v-menu :nudge-width="100">
         <v-toolbar-title slot="activator">
             <v-btn flat>
@@ -30,7 +30,6 @@
 
 <script>
 export default {
-    name: 'userbar',
     data (){
         return {
             username: this.$session.get('username')
@@ -45,5 +44,5 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style>
 </style>

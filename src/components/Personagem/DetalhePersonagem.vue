@@ -1,9 +1,9 @@
-<template lang="html">
-    <h1>Listagem Personagens</h1>
-    <hr>
-    <ul>
-        <li>Personagem 1</li>
-    </ul>
+<template>
+    <div>
+        <h1>Personagem X</h1>
+        <hr>
+        <p>Info</p>
+    </div>
 </template>
 
 <script>
@@ -19,5 +19,5 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style>
 </style>

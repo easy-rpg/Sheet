@@ -2,10 +2,14 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import HomeView from '@/views/HomeView'
-import SobreView from '@/views/SobreView'
-import HelloWorld from '@/components/HelloWorld'
-import Login from '@/components/Login'
-import Register from '@/components/Register'
+import CampanhasView from '@/views/CampanhasView'
+import PersonagensView from '@/views/PersonagensView'
+import WikiView from '@/views/WikiView'
+
+import Login from '@/components/Usuario/Login'
+import Register from '@/components/Usuario/Register'
+import Perfil from '@/components/Usuario/Perfil'
+
 
 Vue.use(Router)
 
@@ -27,9 +31,19 @@ export default new Router({
 			component: Register
 		},
 		{
-			path: '/hello',
-			name: 'HelloView',
-			component: HelloWorld
+			path: '/wiki',
+			name: 'WikiView',
+			component: WikiView
+		},
+		{
+			path: '/campanhas',
+			name: 'CampanhasView',
+			component: CampanhasView
+		},
+		{
+			path: '/personagens',
+			name: 'PersonagensView',
+			component: PersonagensView
 		}
 	]
 })

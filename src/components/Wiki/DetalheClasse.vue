@@ -1,6 +1,8 @@
 <template>
     <div>
-
+        <h1>Classe X</h1>
+        <hr>
+        <p>Info</p>
     </div>
 </template>
 
@@ -8,11 +10,6 @@
 export default {
     data () {
         return { }
-    },
-    beforeCreate: function () {
-        if (!this.$session.exists()) {
-            this.$router.push('/login')
-        }
     }
 }
 </script>

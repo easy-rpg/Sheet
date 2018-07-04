@@ -1,7 +1,9 @@
-<template lang="html">
-    <h1>Arco X</h1>
-    <hr>
-    <p>Info</p>
+<template>
+    <div>
+        <h1>Arco X</h1>
+        <hr>
+        <p>Info</p>
+    </div>
 </template>
 
 <script>
@@ -17,5 +19,5 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style>
 </style>
