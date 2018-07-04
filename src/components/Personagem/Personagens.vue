@@ -1,5 +1,9 @@
 <template lang="html">
-
+    <h1>Listagem Personagens</h1>
+    <hr>
+    <ul>
+        <li>Personagem 1</li>
+    </ul>
 </template>
 
 <script>

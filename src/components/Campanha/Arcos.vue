@@ -1,5 +1,9 @@
 <template lang="html">
-
+    <h1>Listagem Arcos</h1>
+    <hr>
+    <ul>
+        <li>Arco 1</li>
+    </ul>
 </template>
 
 <script>

@@ -1,5 +1,7 @@
 <template lang="html">
-
+    <h1>Campanha X</h1>
+    <hr>
+    <p>Info</p>
 </template>
 
 <script>
