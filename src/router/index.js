@@ -14,34 +14,22 @@ export default new Router({
 		{
 			path: '/',
 			name: 'HomeView',
-			component: HomeView,
-			meta: {
-				auth: false
-			}
+			component: HomeView
 		},
 		{
 			path: '/login',
 			name: 'Login',
-			component: Login,
-			meta: {
-				auth: false
-			}
+			component: Login
 		},
 		{
 			path: '/register',
 			name: 'Register',
-			component: Login,
-			meta: {
-				auth: false
-			}
+			component: Register
 		},
 		{
 			path: '/hello',
 			name: 'HelloView',
-			component: HelloWorld,
-			meta: {
-				auth: true
-			}
+			component: HelloWorld
 		}
 	]
 })
