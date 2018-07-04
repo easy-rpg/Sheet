@@ -119,6 +119,6 @@ export default {
                 console.log({'id_user': context.$session.get('id_user'), 'username': context.$session.get('username'), 'jwt': context.$session.get('jwt')})
                 return context.$http
             })
-        }
+        })
     }
 }
