@@ -101,9 +101,21 @@ export default {
                 }
                 return context.$http
             }, function (err) {
-                console.log('err', err)
+                if (error.response) {
+                    // The request was made and the server responded with a status code
+                    // that falls out of the range of 2xx
+                    console.log({'data': error.response.data, 'status': error.response.status, 'headers': error.response.headers})
+                } else if (error.request) {
+                    // The request was made but no response was received
+                    // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+                    // http.ClientRequest in node.js
+                    console.log({'request': error.request})
+                } else {
+                    // Something happened in setting up the request that triggered an Error
+                    console.log({'Error': error.message})
+                }
+                console.log({'config': error.config});
             }).then(function (){
-                +
                 console.log({'id_user': context.$session.get('id_user'), 'username': context.$session.get('username'), 'jwt': context.$session.get('jwt')})
                 return context.$http
             })
