@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import UserBar from '@/components/Toolbar/UserBar'
+import UserBar from '@/components/Usuario/UserBar'
 export default {
     data () {
         return {
