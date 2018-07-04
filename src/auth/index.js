@@ -2,13 +2,13 @@ import axios from 'axios'
 
 // URL and endpoint constants
 const API_URL = 'https://sheet-api.herokuapp.com/'
-const LOGIN_URL = API_URL + 'auth/'
 const SIGNUP_URL = API_URL + 'user/'
+const AUTH_URL = API_URL + 'auth/'
 
 export default {
     // Send a request to the login URL and save the returned JWT
     login: function (context,creds, redirect) {
-        context.$http.post(LOGIN_URL, creds).then(function (response) {
+        context.$http.post(AUTH_URL, creds).then(function (response) {
             if (response.status === 200) {
                 context.$session.destroy()
                 context.$session.start()
