@@ -15,7 +15,7 @@ export default {
                 context.$session.set('jwt', response.data.token)
                 axios.defaults.headers.common['Authorization'] = 'JWT ' + response.data.token
             }
-            // return context.$http
+            return context.$http
         }, function (err) {
             console.log('err', err)
         }).then(function (){
@@ -28,12 +28,12 @@ export default {
                 if(redirect) {
                     context.$router.push(redirect)
                 }
-                // return context.$http
+                return context.$http
             }, function (err) {
                 console.log('err', err)
             }).then(function (){
                 // console.log({'id_user': context.$session.get('id_user'), 'username': context.$session.get('username'), 'jwt': context.$session.get('jwt')})
-                // return context.$http
+                return context.$http
             })
         })
     },
@@ -46,7 +46,7 @@ export default {
                 context.$session.set('username', response.data.username)
                 context.$session.set('id_user', response.data.id_user)
             }
-            // return context.$http
+            return context.$http
         }, function (err) {
             console.log('err', err)
         }).then(function (){
@@ -59,12 +59,12 @@ export default {
                 if(redirect) {
                     context.$router.push(redirect)
                 }
-            // return context.$http
+            return context.$http
             }, function (err) {
                 console.log('err', err)
             }).then(function (){
                 console.log({'id_user': context.$session.get('id_user'), 'username': context.$session.get('username'), 'jwt': context.$session.get('jwt')})
-                // return context.$http
+                return context.$http
             })
         })
     }
