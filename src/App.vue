@@ -62,13 +62,12 @@ export default {
     },
     // methods: {
     //     loggedIn: function() {
-    //         return auth.loggedIn(this)
+    //         return this.$session.exists()
     //     }
     // },
     // computed: {
     //     loggedIn: function() {
     //         return this.$session.exists()
-    //         return
     //     }
     // },
     components: {
