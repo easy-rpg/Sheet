@@ -8,15 +8,16 @@ const REGISTER_URL = API_URL + 'create_user/'
 export default {
     // Send a request to the login URL and save the returned JWT
     login: function (context,creds, redirect) {
-        context.$http.post(AUTH_URL, creds).then(function (response) {
+        context.$http.post(AUTH_URL, creds)
+        .then(function (response) {
             if (response.status === 200) {
                 context.$session.destroy()
                 context.$session.start()
                 context.$session.set('jwt', response.data.token)
                 axios.defaults.headers.common['Authorization'] = 'JWT ' + response.data.token
             }
-            return context.$http
-        }, function (error) {
+        })
+        .catch(function (error) {
             if (error.response) {
                 // The request was made and the server responded with a status code
                 // that falls out of the range of 2xx
@@ -31,8 +32,10 @@ export default {
                 console.log({'Error': error.message})
             }
             console.log({'config': error.config});
-        }).then(function (){
-            context.$http.get(API_URL+'user/me/').then(function (response) {
+        })
+        .then(function (){
+            context.$http.get(API_URL+'user/me/')
+            .then(function (response) {
                 if (response.status === 200) {
                     context.$session.set('username', response.data.username)
                     context.$session.set('id_user', response.data.id)
@@ -41,8 +44,8 @@ export default {
                 if(redirect) {
                     context.$router.push(redirect)
                 }
-                return context.$http
-            }, function (error) {
+            })
+            .catch(function (error) {
                 if (error.response) {
                     // The request was made and the server responded with a status code
                     // that falls out of the range of 2xx
@@ -57,15 +60,16 @@ export default {
                     console.log({'Error': error.message})
                 }
                 console.log({'config': error.config});
-            }).then(function (){
+            })
+            .then(function (){
                 // console.log({'id_user': context.$session.get('id_user'), 'username': context.$session.get('username'), 'jwt': context.$session.get('jwt')})
-                return context.$http
             })
         })
     },
 
     register(context, creds, redirect) {
-        context.$http.post(REGISTER_URL, creds).then(function (response) {
+        context.$http.post(REGISTER_URL, creds)
+        .then(function (response) {
             console.log(response)
             if (response.status === 200) {
                 context.$session.destroy()
@@ -73,8 +77,8 @@ export default {
                 context.$session.set('username', response.data.username)
                 context.$session.set('id_user', response.data.id_user)
             }
-            return context.$http
-        }, function (error) {
+        })
+        .catch(function (error) {
             if (error.response) {
                 // The request was made and the server responded with a status code
                 // that falls out of the range of 2xx
@@ -89,8 +93,13 @@ export default {
                 console.log({'Error': error.message})
             }
             console.log({'config': error.config});
-        }).then(function (){
-            context.$http.post(AUTH_URL, {'username': creds.username, 'password': creds.password}).then(function (response) {
+        })
+        .then(function (){
+            context.$http.post(AUTH_URL, {
+                'username': creds.username,
+                'password': creds.password
+            })
+            .then(function (response) {
                 if (response.status === 200) {
                     context.$session.set('jwt', response.data.token)
                     axios.defaults.headers.common['Authorization'] = 'JWT ' + response.data.token
@@ -99,8 +108,8 @@ export default {
                 if(redirect) {
                     context.$router.push(redirect)
                 }
-                return context.$http
-            }, function (err) {
+            })
+            .catch(function (error) {
                 if (error.response) {
                     // The request was made and the server responded with a status code
                     // that falls out of the range of 2xx
@@ -115,9 +124,9 @@ export default {
                     console.log({'Error': error.message})
                 }
                 console.log({'config': error.config});
-            }).then(function (){
-                console.log({'id_user': context.$session.get('id_user'), 'username': context.$session.get('username'), 'jwt': context.$session.get('jwt')})
-                return context.$http
+            })
+            .then(function (){
+                // console.log({'id_user': context.$session.get('id_user'), 'username': context.$session.get('username'), 'jwt': context.$session.get('jwt')})
             })
         })
     }
