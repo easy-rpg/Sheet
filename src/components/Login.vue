@@ -1,28 +1,27 @@
 <template>
-    <div class="col-sm-4 col-sm-offset-4">
-        <h2>Log In</h2>
-        <p>Log in to your account to get some great quotes.</p>
-        <div class="alert alert-danger" v-if="error">
-            <p>{{ error }}</p>
-        </div>
-        <div class="form-group">
-            <input
-            type="text"
-            class="form-control"
-            placeholder="Enter your username"
-            v-model="credentials.username"
-            >
-        </div>
-        <div class="form-group">
-            <input
-            type="password"
-            class="form-control"
-            placeholder="Enter your password"
-            v-model="credentials.password"
-            >
-        </div>
-        <button class="btn btn-primary" @click="submit()">Access</button>
-    </div>
+    <v-content>
+        <v-container fluid fill-height>
+            <v-layout align-center justify-center>
+                <v-flex xs12 sm8 md4>
+                    <v-card class="elevation-12">
+                        <v-toolbar dark color="dark">
+                            <v-toolbar-title>Login form</v-toolbar-title>
+                            <v-spacer></v-spacer>
+                        </v-toolbar>
+                        <v-card-text>
+                            <v-text-field v-model="credentials.username" prepend-icon="fa-user" name="username" label="username" type="text"></v-text-field>
+                            <v-text-field v-model="credentials.password" id="password" prepend-icon="fa-lock" name="password" label="Password" type="password"></v-text-field>
+                        </v-card-text>
+                        <v-card-actions>
+                            <v-spacer></v-spacer>
+                            <v-btn color="dark" @click="submit()">Login</v-btn>
+                        </v-card-actions>
+                    </v-card>
+                </v-flex>
+            </v-layout>
+        </v-container>
+    </v-content>
+</template>
 </template>
 
 <script>
