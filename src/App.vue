@@ -53,10 +53,10 @@ export default {
             drawer: false,
             loggedIn: this.$session.exists(),
             routes: [
-                { title: 'Home', icon: 'fas fa-home', to: '/' },
-                { title: 'Conteúdo', icon: 'fas fa-user', to:'/content' },
-                { title: 'Sobre', icon: 'info', to:'/sobre' },
-                { title: 'Hello World', icon: 'home', to:'/hello' },
+                { title: 'Home', icon: 'fa-home', to: '/' },
+                { title: 'Conteúdo', icon: 'fa-user', to:'/content' },
+                { title: 'Sobre', icon: 'fa-info-circle', to:'/sobre' },
+                { title: 'Hello World', icon: 'fa-home', to:'/hello' },
             ]
         }
     },

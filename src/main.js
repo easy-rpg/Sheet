@@ -14,7 +14,7 @@ Vue.use(VueAxios, axios)
 Vue.config.productionTip = false
 
 Vue.use(VueSession, {persist: true})
-Vue.use(Vuetify)
+Vue.use(Vuetify, {iconfont: 'fa'})
 
 /* eslint-disable no-new */
 new Vue({
