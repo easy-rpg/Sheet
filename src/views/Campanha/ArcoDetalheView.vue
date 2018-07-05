@@ -1,6 +1,6 @@
 <template>
     <div>
-        <arco></arco>
+        <arco :id='id'></arco>
     </div>
 </template>
 
@@ -11,7 +11,7 @@ export default {
         data () {
             return { }
         },
-        props: ['id'],
+        props: {id: String},
         components: {
             arco: ArcoDetalhe
         }

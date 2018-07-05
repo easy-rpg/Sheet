@@ -1,6 +1,6 @@
 <template>
     <div>
-        <campanha></campanha>
+        <campanha :id='id'></campanha>
     </div>
 </template>
 
@@ -11,7 +11,7 @@ export default {
         data () {
             return { }
         },
-        props: ['id'],
+        props: {id: String},
         components: {
             campanha: CampanhaDetalhe
         }

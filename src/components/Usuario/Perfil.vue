@@ -1,5 +1,8 @@
 <template>
-    <v-content>
+    <div v-if="loading">
+        <p>Loading...</p>
+    </div>
+    <v-content v-else>
         <v-container fluid grid-list-lg>
             <v-layout row wrap align-center justify-center>
                 <v-flex xs12 md4 sm8>
@@ -22,14 +25,8 @@ const api_config = require('@/api_config');
 export default {
     data () {
         return {
-            user: {
-                id: '',
-                username: '',
-                email: '',
-                password: '',
-                first_name: '',
-                last_name: ''
-            }
+            loading: true,
+            user: {}
         }
     },
     components: {
@@ -69,7 +66,9 @@ export default {
             }
             console.log({'config': error.config});
         })
-
+        .then(function() {
+            self.loading = false
+        })
     },
     methods: {
         onUpdate (event) {

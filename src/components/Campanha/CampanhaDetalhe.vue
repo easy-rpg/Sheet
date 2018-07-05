@@ -1,5 +1,8 @@
 <template>
-    <div>
+    <div v-if="loading">
+        <p>Loading...</p>
+    </div>
+    <div v-else>
         <h1>Campanha X</h1>
         <hr>
         <p>Info</p>
@@ -9,9 +12,12 @@
 <script>
 export default {
     data () {
-        return { }
+        return {
+            loading: false,
+            campanha: {}
+        }
     },
-    props: ['campanha_id'],
+    props: {id: String},
     beforeCreate: function () {
         if (!this.$session.exists()) {
             this.$router.push('/login')

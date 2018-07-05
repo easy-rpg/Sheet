@@ -1,6 +1,6 @@
 <template>
     <div>
-        <personagem></personagem>
+        <personagem :id='id'></personagem>
     </div>
 </template>
 
@@ -11,7 +11,7 @@ export default {
         data () {
             return { }
         },
-        props: ['id'],
+        props: {id: String},
         components: {
             personagem: PersonagemDetalhe
         }
