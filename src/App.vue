@@ -72,7 +72,7 @@ export default {
         }
     },
     timers: {
-        refreshToken: { time: 50000, autostart: true, repeat: true }
+        refreshToken: { time: 500000, autostart: true, repeat: true }
     },
     methods: {
         refreshToken: function() {
