@@ -5,10 +5,10 @@ import HomeView from '@/views/HomeView'
 import CampanhasView from '@/views/CampanhasView'
 import PersonagensView from '@/views/PersonagensView'
 import WikiView from '@/views/WikiView'
+import PerfilView from '@/views/PerfilView.vue'
 
 import Login from '@/components/Usuario/Login'
 import Register from '@/components/Usuario/Register'
-import Perfil from '@/components/Usuario/Perfil'
 
 
 Vue.use(Router)
@@ -44,6 +44,11 @@ export default new Router({
 			path: '/personagens',
 			name: 'PersonagensView',
 			component: PersonagensView
+		},
+		{
+			path: '/perfil',
+			name: 'PerfilView',
+			component: PerfilView
 		}
 	]
 })
