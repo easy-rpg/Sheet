@@ -75,6 +75,10 @@ export default {
     },
     beforeUpdate: function () {
         this.loggedIn = this.$session.exists()
+        if(this.loggedIn) {
+            this.$http.defaults.headers.common['Authorization'] = 'Bearer ' + this.$session.get('jwt')
+        }
+        // console.log(this.$http.defaults.headers.common)
     }
 }
 </script>
