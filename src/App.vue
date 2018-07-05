@@ -44,6 +44,7 @@
 </template>
 
 <script>
+const api_config = require('@/api_config');
 import auth from '@/auth'
 import UserBar from '@/components/Usuario/UserBar'
 
@@ -61,16 +62,6 @@ export default {
             ]
         }
     },
-    // methods: {
-    //     loggedIn: function() {
-    //         return this.$session.exists()
-    //     }
-    // },
-    // computed: {
-    //     loggedIn: function() {
-    //         return this.$session.exists()
-    //     }
-    // },
     components: {
         userbar: UserBar
     },
@@ -79,7 +70,41 @@ export default {
         if(this.$session.exists()) {
             this.$http.defaults.headers.common['Authorization'] = 'Bearer ' + this.$session.get('jwt')
         }
-    }
+    },
+    timers: {
+        refreshToken: { time: 50000, autostart: true, repeat: true }
+    },
+    methods: {
+        refreshToken: function() {
+            this.$session.exists(){
+                let self = this
+                this.$http.post(api_config.auth_refresh, {'refresh': this.$session.get('jwt-refresh')})
+                .then(function(response) {
+                    if (response.status === 200) {
+                        self.$session.set('jwt', response.data.access)
+                        self.$http.defaults.headers.common['Authorization'] = 'Bearer ' + self.$session.get('jwt')
+                        console.log({'msg': 'token atualizado!', 'access': self.$session.get('jwt')})
+                    }
+                })
+                .catch(function(error) {
+                    if (error.response) {
+                        // The request was made and the server responded with a status code
+                        // that falls out of the range of 2xx
+                        console.log({'data': error.response.data, 'status': error.response.status, 'headers': error.response.headers})
+                    } else if (error.request) {
+                        // The request was made but no response was received
+                        // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+                        // http.ClientRequest in node.js
+                        console.log({'request': error.request})
+                    } else {
+                        // Something happened in setting up the request that triggered an Error
+                        console.log({'Error': error.message})
+                    }
+                    console.log({'config': error.config});
+                })
+            }
+        }
+    },
 }
 </script>
 
