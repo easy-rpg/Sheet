@@ -95,6 +95,7 @@ export default {
             .then(function (){
                 self.$http.get(api_config.user_me)
                 .then(function (response) {
+                    console.log({'msg': 'POST user_me', 'response': response})
                     if (response.status === 200) {
                         self.$session.set('username', response.data.username)
                         self.$session.set('id', response.data.id)
