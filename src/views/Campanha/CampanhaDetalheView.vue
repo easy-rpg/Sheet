@@ -1,20 +1,18 @@
 <template>
     <div>
-        <campanhas></campanhas>
-        <arcos></arcos>
+        <campanha></campanha>
     </div>
 </template>
 
 <script>
-import Campanha from '@/components/Campanha/Deta'
+import CampanhaDetalhe from '@/components/Campanha/CampanhaDetalhe'
 
 export default {
         data () {
             return { }
         },
         components: {
-            campanhas: ListagemCampanhas,
-            arcos: ListagemArcos
+            campanha: CampanhaDetalhe
         }
 }
 </script>
