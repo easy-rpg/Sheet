@@ -3,13 +3,15 @@
         <p>Loading...</p>
     </div>
     <div v-else>
-        <h1>Arco X</h1>
+        <h1>{{ arco.nome }}</h1>
         <hr>
-        <p>Info</p>
+        {{ arco }}
     </div>
 </template>
 
 <script>
+const api_config = require('@/api_config');
+
 export default {
     data () {
         return {
@@ -28,12 +30,12 @@ export default {
     },
     created: function () {
         let self = this
-        this.$http.get(api_config.user_me)
+        this.$http.get(api_config.arco+this.id+'/')
         .then(function(response) {
             // console.log(response)
             // JSON responses are automatically parsed.
-            self.user = response.data
-            console.log({'msg': 'user loaded!', 'user': self.user})
+            self.arco = response.data
+            console.log({'msg': 'arco loaded!', 'arco': self.arco})
         })
         .catch(function(error) {
             if (error.response) {
@@ -50,6 +52,9 @@ export default {
                 console.log({'Error': error.message})
             }
             console.log({'config': error.config});
+        })
+        .then(function() {
+            self.loading = false
         })
     },
     methods: {
