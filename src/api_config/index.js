@@ -7,6 +7,7 @@ module.exports = {
     user_me: '/user/me/',
     personagem: '/personagem/',
     campanha: '/campanha/',
+    campanha_jogando: '/campanha/jogando/',
     arco: '/arco/',
     classe: '/classe/',
 }
