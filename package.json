@@ -15,7 +15,8 @@
         "vue": "^2.5.2",
         "vue-axios": "^2.1.1",
         "vue-router": "^3.0.1",
-        "vue-session": "^1.0.0"
+        "vue-session": "^1.0.0",
+        "vue-timers": "^1.7.3"
     },
     "devDependencies": {
         "autoprefixer": "^7.1.5",

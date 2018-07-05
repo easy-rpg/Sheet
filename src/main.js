@@ -8,6 +8,9 @@ import 'vuetify/dist/vuetify.css'
 import VueSession from 'vue-session'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import VueTimers from 'vue-timers'
+
+Vue.use(VueTimers)
 
 Vue.use(VueAxios, axios)
 Vue.axios.defaults.baseURL = 'https://sheet-api.herokuapp.com/'
