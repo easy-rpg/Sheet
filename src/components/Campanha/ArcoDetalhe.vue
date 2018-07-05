@@ -10,7 +10,7 @@
 </template>
 
 <script>
-const api_config = require('@/api_config');
+const api_config = require('@/api_config')
 
 export default {
     data () {
