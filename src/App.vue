@@ -76,7 +76,7 @@ export default {
     },
     methods: {
         refreshToken: function() {
-            this.$session.exists(){
+            if(this.$session.exists()){
                 let self = this
                 this.$http.post(api_config.auth_refresh, {'refresh': this.$session.get('jwt-refresh')})
                 .then(function(response) {
