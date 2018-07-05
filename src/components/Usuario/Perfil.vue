@@ -3,14 +3,10 @@
         <v-container fluid grid-list-lg>
             <v-layout row wrap align-center justify-center>
                 <v-flex xs12 md4 sm8>
-                    <v-card class="elevation-12">
-                        <v-container fluid grid-list-lg>
-                            <v-layout row>
-                                <v-flex >
-                                </v-flex>
-                            </v-layout>
-                        </v-container>
-                    </v-card>
+                    <perfil-card :user="user" @update="onUpdate"></perfil-card>
+                </v-flex>
+                <v-flex xs12 md4 sm8>
+                    <change-pass></change-pass>
                 </v-flex>
             </v-layout>
         </v-container>
@@ -18,6 +14,9 @@
 </template>
 
 <script>
+import PerfilCard from './PerfilCard.vue'
+import ChangePass from './ChangePass.vue'
+
 const api_config = require('@/api_config');
 
 export default {
@@ -32,6 +31,10 @@ export default {
                 last_name: ''
             }
         }
+    },
+    components: {
+        PerfilCard,
+        ChangePass
     },
     beforeCreate: function () {
         if (!this.$session.exists()) {
@@ -66,8 +69,12 @@ export default {
             }
             console.log({'config': error.config});
         })
+
     },
     methods: {
+        onUpdate (event) {
+            console.log(event)
+        },
         submit() {
             let self = this
             this.$http.patch(api_config.user+self.$session.get('id')+'/', self.user)
