@@ -13,8 +13,8 @@ import PersonagemDetalheView from '@/views/Personagem/PersonagemDetalheView'
 
 import PerfilView from '@/views/Usuario/PerfilView.vue'
 
-import Login from '@/components/Usuario/Login'
-import Register from '@/components/Usuario/Register'
+import LoginView from '@/views/Usuario/LoginView'
+import RegisterView from '@/views/Usuario/RegisterView'
 
 
 Vue.use(Router)
@@ -28,13 +28,13 @@ export default new Router({
 		},
 		{
 			path: '/login',
-			name: 'Login',
-			component: Login
+			name: 'LoginView',
+			component: LoginView
 		},
 		{
 			path: '/register',
-			name: 'Register',
-			component: Register
+			name: 'RegisterView',
+			component: RegisterView
 		},
 		{
 			path: '/wiki',
