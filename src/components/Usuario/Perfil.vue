@@ -6,7 +6,7 @@
         <v-container fluid grid-list-lg>
             <v-layout row wrap align-center justify-center>
                 <v-flex xs12 md4 sm8>
-                    <perfil-card :user="user" @update="onUpdate"></perfil-card>
+                    <perfil-card :user="user" @update="submitData"></perfil-card>
                 </v-flex>
                 <v-flex xs12 md4 sm8>
                     <change-pass></change-pass>
@@ -71,12 +71,9 @@ export default {
         })
     },
     methods: {
-        onUpdate (event) {
-            console.log(event)
-        },
-        submit() {
+        submitData(user) {
             let self = this
-            this.$http.patch(api_config.user+self.$session.get('id')+'/', self.user)
+            this.$http.patch(api_config.user+self.$session.get('id')+'/', user)
             .then(function(response) {
                 console.log(response)
                 // JSON responses are automatically parsed.
