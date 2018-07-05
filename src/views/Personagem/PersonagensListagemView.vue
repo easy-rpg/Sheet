@@ -5,14 +5,14 @@
 </template>
 
 <script>
-import ListagemPersonagens from '@/components/Personagem/ListagemPersonagens'
+import PersonagensListagem from '@/components/Personagem/PersonagensListagem'
 
 export default {
         data () {
             return { }
         },
         components: {
-            personagens: ListagemPersonagens
+            personagens: PersonagensListagem
         }
 }
 </script>

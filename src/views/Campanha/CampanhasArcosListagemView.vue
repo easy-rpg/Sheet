@@ -6,16 +6,16 @@
 </template>
 
 <script>
-import ListagemCampanhas from '@/components/Campanha/ListagemCampanhas'
-import ListagemArcos from '@/components/Campanha/ListagemArcos'
+import CampanhasListagem from '@/components/Campanha/CampanhasListagem'
+import ArcosListagem from '@/components/Campanha/ArcosListagem'
 
 export default {
         data () {
             return { }
         },
         components: {
-            campanhas: ListagemCampanhas,
-            arcos: ListagemArcos
+            campanhas: CampanhasListagem,
+            arcos: ArcosListagem
         }
 }
 </script>
