@@ -1,4 +1,3 @@
-import axios from 'axios'
 const api_config = require('../api_config');
 // console.log({'vars': api_config})
 
@@ -14,7 +13,7 @@ export default {
                 context.$session.set('jwt', response.data.access)
                 context.$session.set('jwt-refresh', response.data.refresh)
                 // console.log({'id_user': context.$session.get('id_user'), 'username': context.$session.get('username'), 'jwt': context.$session.get('jwt'), 'jwt-refresh': context.$session.get('jwt-refresh')})
-                axios.defaults.headers.common['Authorization'] = 'Bearer ' + response.data.access
+                context.$http.defaults.headers.common['Authorization'] = 'Bearer ' + response.data.access
             }
         })
         .catch(function (error) {
@@ -103,7 +102,7 @@ export default {
                 if (response.status === 200) {
                     context.$session.set('jwt', response.data.access)
                     context.$session.set('jwt-refresh', response.data.refresh)
-                    axios.defaults.headers.common['Authorization'] = 'Bearer ' + response.data.access
+                    context.$http.defaults.headers.common['Authorization'] = 'Bearer ' + response.data.access
                 }
                 // Redirect to a specified route
                 if(redirect) {
