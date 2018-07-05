@@ -5,4 +5,8 @@ module.exports = {
     register: '/create_user/',
     user: '/user/',
     user_me: '/user/me/',
+    personagem: '/personagem/',
+    campanha: '/campanha/',
+    arco: '/arco/',
+    classe: '/classe/',
 }
