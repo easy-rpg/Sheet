@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import ArcoDetalhe from '@/components/Arco/ArcoDetalhe'
+import ArcoDetalhe from '@/components/Campanha/ArcoDetalhe'
 
 export default {
         data () {

@@ -7,15 +7,15 @@
 </template>
 
 <script>
-import ListagemCampanhas from '@/components/Campanha/ListagemCampanhas'
-import ListagemArcos from '@/components/Campanha/ListagemArcos'
-import ListagemPersonagens from '@/components/Personagem/ListagemPersonagens'
+import CampanhasListagem from '@/components/Campanha/CampanhasListagem'
+import ArcosListagem from '@/components/Campanha/ArcosListagem'
+import PersonagensListagem from '@/components/Personagem/PersonagensListagem'
 
 export default {
 	components: {
-		campanhas: ListagemCampanhas,
-		arcos: ListagemArcos,
-		personagens: ListagemPersonagens
+		campanhas: CampanhasListagem,
+		arcos: ArcosListagem,
+		personagens: PersonagensListagem
 	}
 }
 </script>
