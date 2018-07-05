@@ -44,7 +44,7 @@ export default {
     },
     created: function () {
         let self = this
-        this.$http.get(api_config.me_url)
+        this.$http.get(api_config.user_me)
         .then(function(response) {
             // console.log(response)
             // JSON responses are automatically parsed.
@@ -71,7 +71,7 @@ export default {
     methods: {
         submit() {
             let self = this
-            this.$http.patch(api_config+self.$session.get('id')+'/', self.user)
+            this.$http.patch(api_config.user+self.$session.get('id')+'/', self.user)
             .then(function(response) {
                 console.log(response)
                 // JSON responses are automatically parsed.

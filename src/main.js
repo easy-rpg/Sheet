@@ -10,7 +10,8 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 
 Vue.use(VueAxios, axios)
-// axios.defaults.headers.common['access-control-allow-origin'] = true
+Vue.axios.defaults.baseURL = 'https://sheet-api.herokuapp.com/'
+
 Vue.config.productionTip = false
 
 Vue.use(VueSession, {persist: true})

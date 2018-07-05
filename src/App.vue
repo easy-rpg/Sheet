@@ -79,7 +79,6 @@ export default {
         if(this.$session.exists()) {
             this.$http.defaults.headers.common['Authorization'] = 'Bearer ' + this.$session.get('jwt')
         }
-        // console.log(this.$http.defaults.headers.common)
     }
 }
 </script>

@@ -4,7 +4,7 @@ const api_config = require('@/api_config');
 export default {
     // Send a request to the login URL and save the returned JWT
     login: function (context,creds, redirect) {
-        context.$http.post(api_config.auth_url, creds)
+        context.$http.post(api_config.auth, creds)
         .then(function (response) {
             // console.log({'request': 'POST AUTH_URL','response': response})
             if (response.status === 200) {
@@ -33,7 +33,7 @@ export default {
             console.log({'config': error.config});
         })
         .then(function (){
-            context.$http.get(api_config.me_url)
+            context.$http.get(api_config.user_me)
             .then(function (response) {
                 if (response.status === 200) {
                     context.$session.set('username', response.data.username)
@@ -67,7 +67,7 @@ export default {
     },
 
     register(context, creds, redirect) {
-        context.$http.post(api_config.register_url, creds)
+        context.$http.post(api_config.register, creds)
         .then(function (response) {
             console.log(response)
             if (response.status === 200) {
@@ -94,7 +94,7 @@ export default {
             console.log({'config': error.config});
         })
         .then(function (){
-            context.$http.post(api_config.auth_url, {
+            context.$http.post(api_config.auth, {
                 'username': creds.username,
                 'password': creds.password
             })
