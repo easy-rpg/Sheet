@@ -45,7 +45,6 @@
 
 <script>
 const api_config = require('@/api_config');
-import auth from '@/auth'
 import UserBar from '@/components/Usuario/UserBar'
 
 export default {
