@@ -1,4 +1,4 @@
-const api_config = require('../api_config');
+const api_config = require('@/api_config');
 // console.log({'vars': api_config})
 
 export default {
@@ -12,7 +12,7 @@ export default {
                 context.$session.start()
                 context.$session.set('jwt', response.data.access)
                 context.$session.set('jwt-refresh', response.data.refresh)
-                // console.log({'id_user': context.$session.get('id_user'), 'username': context.$session.get('username'), 'jwt': context.$session.get('jwt'), 'jwt-refresh': context.$session.get('jwt-refresh')})
+                // console.log({'id_user': context.$session.get('id'), 'username': context.$session.get('username'), 'jwt': context.$session.get('jwt'), 'jwt-refresh': context.$session.get('jwt-refresh')})
                 context.$http.defaults.headers.common['Authorization'] = 'Bearer ' + response.data.access
             }
         })
@@ -37,7 +37,7 @@ export default {
             .then(function (response) {
                 if (response.status === 200) {
                     context.$session.set('username', response.data.username)
-                    context.$session.set('id_user', response.data.id)
+                    context.$session.set('id', response.data.id)
                 }
                 // Redirect to a specified route
                 if(redirect) {
@@ -61,7 +61,7 @@ export default {
                 console.log({'config': error.config});
             })
             .then(function (){
-                // console.log({'id_user': context.$session.get('id_user'), 'username': context.$session.get('username'), 'jwt': context.$session.get('jwt'), 'jwt-refresh': context.$session.get('jwt-refresh')})
+                // console.log({'id_user': context.$session.get('id'), 'username': context.$session.get('username'), 'jwt': context.$session.get('jwt'), 'jwt-refresh': context.$session.get('jwt-refresh')})
             })
         })
     },
@@ -74,7 +74,7 @@ export default {
                 context.$session.destroy()
                 context.$session.start()
                 context.$session.set('username', response.data.username)
-                context.$session.set('id_user', response.data.id_user)
+                context.$session.set('id', response.data.id_user)
             }
         })
         .catch(function (error) {
@@ -126,7 +126,7 @@ export default {
                 console.log({'config': error.config});
             })
             .then(function (){
-                // console.log({'id_user': context.$session.get('id_user'), 'username': context.$session.get('username'), 'jwt': context.$session.get('jwt'), 'jwt-refresh': context.$session.get('jwt-refresh')})
+                // console.log({'id_user': context.$session.get('id'), 'username': context.$session.get('username'), 'jwt': context.$session.get('jwt'), 'jwt-refresh': context.$session.get('jwt-refresh')})
             })
         })
     }
