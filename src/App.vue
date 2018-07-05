@@ -46,6 +46,7 @@
 <script>
 import auth from '@/auth'
 import UserBar from '@/components/Usuario/UserBar'
+
 export default {
     name: 'app',
     data () {
@@ -75,6 +76,10 @@ export default {
     },
     beforeUpdate: function () {
         this.loggedIn = this.$session.exists()
+        if(this.$session.exists()) {
+            this.$http.defaults.headers.common['Authorization'] = 'Bearer ' + this.$session.get('jwt')
+        }
+        // console.log(this.$http.defaults.headers.common)
     }
 }
 </script>
