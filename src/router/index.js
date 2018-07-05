@@ -2,10 +2,16 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import HomeView from '@/views/HomeView'
-import CampanhasView from '@/views/CampanhasView'
-import PersonagensView from '@/views/PersonagensView'
 import WikiView from '@/views/WikiView'
-import PerfilView from '@/views/PerfilView.vue'
+
+import CampanhasArcosListagemView from '@/views/Campanha/CampanhasArcosListagemView'
+import CampanhaDetalheView from '@/views/Campanha/CampanhaDetalheView'
+import ArcoDetalheView from '@/views/Campanha/ArcoDetalheView'
+
+import PersonagensListagemView from '@/views/Personagem/PersonagensListagemView'
+import PersonagemDetalheView from '@/views/Personagem/PersonagemDetalheView'
+
+import PerfilView from '@/views/Usuario/PerfilView.vue'
 
 import Login from '@/components/Usuario/Login'
 import Register from '@/components/Usuario/Register'
@@ -36,14 +42,29 @@ export default new Router({
 			component: WikiView
 		},
 		{
-			path: '/campanhas',
-			name: 'CampanhasView',
-			component: CampanhasView
+			path: '/campanhas_e_arcos',
+			name: 'CampanhasArcosListagemView',
+			component: CampanhasArcosListagemView
+		},
+		{
+			path: '/campanha/:id',
+			name: 'CampanhaDetalheView',
+			component: CampanhaDetalheView
+		},
+		{
+			path: '/arco/:id',
+			name: 'ArcoDetalheView',
+			component: ArcoDetalheView
 		},
 		{
 			path: '/personagens',
-			name: 'PersonagensView',
-			component: PersonagensView
+			name: 'PersonagensListagemView',
+			component: PersonagensListagemView
+		},
+		{
+			path: '/personagem/:id',
+			name: 'PersonagemDetalheView',
+			component: PersonagemDetalheView
 		},
 		{
 			path: '/perfil',
