@@ -1,20 +1,20 @@
 import axios from 'axios'
-
-// URL and endpoint constants
-const API_URL = 'https://sheet-api.herokuapp.com/'
-const AUTH_URL = API_URL + 'auth/'
-const REGISTER_URL = API_URL + 'create_user/'
+const api_config = require('../api_config');
+// console.log({'vars': api_config})
 
 export default {
     // Send a request to the login URL and save the returned JWT
     login: function (context,creds, redirect) {
-        context.$http.post(AUTH_URL, creds)
+        context.$http.post(api_config.auth_url, creds)
         .then(function (response) {
+            // console.log({'request': 'POST AUTH_URL','response': response})
             if (response.status === 200) {
                 context.$session.destroy()
                 context.$session.start()
-                context.$session.set('jwt', response.data.token)
-                axios.defaults.headers.common['Authorization'] = 'JWT ' + response.data.token
+                context.$session.set('jwt', response.data.access)
+                context.$session.set('jwt-refresh', response.data.refresh)
+                // console.log({'id_user': context.$session.get('id_user'), 'username': context.$session.get('username'), 'jwt': context.$session.get('jwt'), 'jwt-refresh': context.$session.get('jwt-refresh')})
+                axios.defaults.headers.common['Authorization'] = 'Bearer ' + response.data.access
             }
         })
         .catch(function (error) {
@@ -34,7 +34,7 @@ export default {
             console.log({'config': error.config});
         })
         .then(function (){
-            context.$http.get(API_URL+'user/me/')
+            context.$http.get(api_config.me_url)
             .then(function (response) {
                 if (response.status === 200) {
                     context.$session.set('username', response.data.username)
@@ -62,13 +62,13 @@ export default {
                 console.log({'config': error.config});
             })
             .then(function (){
-                // console.log({'id_user': context.$session.get('id_user'), 'username': context.$session.get('username'), 'jwt': context.$session.get('jwt')})
+                // console.log({'id_user': context.$session.get('id_user'), 'username': context.$session.get('username'), 'jwt': context.$session.get('jwt'), 'jwt-refresh': context.$session.get('jwt-refresh')})
             })
         })
     },
 
     register(context, creds, redirect) {
-        context.$http.post(REGISTER_URL, creds)
+        context.$http.post(api_config.register_url, creds)
         .then(function (response) {
             console.log(response)
             if (response.status === 200) {
@@ -95,14 +95,15 @@ export default {
             console.log({'config': error.config});
         })
         .then(function (){
-            context.$http.post(AUTH_URL, {
+            context.$http.post(api_config.auth_url, {
                 'username': creds.username,
                 'password': creds.password
             })
             .then(function (response) {
                 if (response.status === 200) {
-                    context.$session.set('jwt', response.data.token)
-                    axios.defaults.headers.common['Authorization'] = 'JWT ' + response.data.token
+                    context.$session.set('jwt', response.data.access)
+                    context.$session.set('jwt-refresh', response.data.refresh)
+                    axios.defaults.headers.common['Authorization'] = 'Bearer ' + response.data.access
                 }
                 // Redirect to a specified route
                 if(redirect) {
@@ -126,7 +127,7 @@ export default {
                 console.log({'config': error.config});
             })
             .then(function (){
-                // console.log({'id_user': context.$session.get('id_user'), 'username': context.$session.get('username'), 'jwt': context.$session.get('jwt')})
+                // console.log({'id_user': context.$session.get('id_user'), 'username': context.$session.get('username'), 'jwt': context.$session.get('jwt'), 'jwt-refresh': context.$session.get('jwt-refresh')})
             })
         })
     }
