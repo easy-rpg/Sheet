@@ -9,8 +9,8 @@
                             <v-spacer></v-spacer>
                         </v-toolbar>
                         <v-card-text>
-                            <v-text-field v-model="credentials.username" prepend-icon="fa-user" name="username" label="Username" type="text"></v-text-field>
-                            <v-text-field v-model="credentials.password" id="password" prepend-icon="fa-lock" name="Password" label="Password" type="password"></v-text-field>
+                            <v-text-field v-model="user.username" prepend-icon="fa-user" name="username" label="Username" type="text"></v-text-field>
+                            <v-text-field v-model="user.password" id="password" prepend-icon="fa-lock" name="Password" label="Password" type="password"></v-text-field>
                         </v-card-text>
                         <v-card-actions>
                             <v-spacer></v-spacer>
@@ -32,19 +32,18 @@ import auth from '@/auth'
 export default {
     data (){
         return {
-            credentials:
+            user:
             {
                 username: '',
                 password: '',
-            },
-            error: ''
+            }
         }
     },
     methods: {
         submit() {
             // We need to pass the component's this context
             // to properly make use of http in the auth service
-            auth.login(this, this.credentials, '/')
+            auth.login(this, this.user, '/')
         }
     }
 }

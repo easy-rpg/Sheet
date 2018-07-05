@@ -23,14 +23,13 @@ const api_config = require('@/api_config');
 export default {
     data () {
         return {
-            loading: false,
             user: {
-                // id: '';
-                // username: '',
-                // email: '',
-                // password: '',
-                // first_name: '',
-                // last_name: ''
+                id: '',
+                username: '',
+                email: '',
+                password: '',
+                first_name: '',
+                last_name: ''
             }
         }
     },

@@ -9,11 +9,11 @@
                             <v-spacer></v-spacer>
                         </v-toolbar>
                         <v-card-text>
-                            <v-text-field v-model="credentials.username" prepend-icon="fa-user" name="username" label="Username" type="text"></v-text-field>
-                            <v-text-field v-model="credentials.password" id="password" prepend-icon="fa-lock" name="password" label="Password" type="password"></v-text-field>
-                            <v-text-field v-model="credentials.email" prepend-icon="fa-at" name="email" label="Email" type="text"></v-text-field>
-                            <v-text-field v-model="credentials.first_name" prepend-icon="fa-info" name="first_name" label="First name" type="text"></v-text-field>
-                            <v-text-field v-model="credentials.last_name" prepend-icon="fa-info" name="last_name" label="Last name" type="text"></v-text-field>
+                            <v-text-field v-model="user.username" prepend-icon="fa-user" name="username" label="Username" type="text"></v-text-field>
+                            <v-text-field v-model="user.password" id="password" prepend-icon="fa-lock" name="password" label="Password" type="password"></v-text-field>
+                            <v-text-field v-model="user.email" prepend-icon="fa-at" name="email" label="Email" type="text"></v-text-field>
+                            <v-text-field v-model="user.first_name" prepend-icon="fa-info" name="first_name" label="First name" type="text"></v-text-field>
+                            <v-text-field v-model="user.last_name" prepend-icon="fa-info" name="last_name" label="Last name" type="text"></v-text-field>
                         </v-card-text>
                         <v-card-actions>
                             <v-spacer></v-spacer>
@@ -32,22 +32,21 @@ import auth from '@/auth'
 export default {
     data (){
         return {
-            credentials:
+            user:
             {
                 username: '',
                 password: '',
                 emaill: '',
                 first_name: '',
                 last_name: '',
-            },
-            error: ''
+            }
         }
     },
     methods: {
         submit() {
             // We need to pass the component's this context
             // to properly make use of http in the auth service
-            auth.register(this, this.credentials, '/')
+            auth.register(this, this.user, '/')
         }
     }
 }
