@@ -49,12 +49,14 @@ export default new Router({
 		{
 			path: '/campanha/:id',
 			name: 'CampanhaDetalheView',
-			component: CampanhaDetalheView
+			component: CampanhaDetalheView,
+			props: true
 		},
 		{
 			path: '/arco/:id',
 			name: 'ArcoDetalheView',
-			component: ArcoDetalheView
+			component: ArcoDetalheView,
+			props: true
 		},
 		{
 			path: '/personagens',
@@ -64,7 +66,8 @@ export default new Router({
 		{
 			path: '/personagem/:id',
 			name: 'PersonagemDetalheView',
-			component: PersonagemDetalheView
+			component: PersonagemDetalheView,
+			props: true
 		},
 		{
 			path: '/perfil',
