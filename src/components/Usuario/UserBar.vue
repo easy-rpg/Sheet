@@ -7,7 +7,7 @@
             </v-btn>
         </v-toolbar-title>
         <v-list>
-            <v-list-tile key="Perfil" to="/">
+            <v-list-tile key="Perfil" to="/perfil">
                 <v-list-tile-action>
                     <v-icon>fa-user</v-icon>
                 </v-list-tile-action>
