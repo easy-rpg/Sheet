@@ -37,7 +37,7 @@
             </div>
         </v-toolbar>
         <v-toolbar-side-icon @click.stop="drawer = !drawer "></v-toolbar-side-icon>
-        <v-container fluid grid-list-xl>
+        <v-container grid-list-xs,sm,md,lg,xl>
             <router-view></router-view>
         </v-container>
     </v-app>

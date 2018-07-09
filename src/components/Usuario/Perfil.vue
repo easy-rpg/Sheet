@@ -2,18 +2,16 @@
     <div v-if="loading">
         <p>Loading...</p>
     </div>
-    <v-content v-else>
-        <v-container fluid grid-list-lg>
-            <v-layout row wrap align-center justify-center>
-                <v-flex xs12 md4 sm8>
-                    <perfil-card :user="user" @update="submitData"></perfil-card>
-                </v-flex>
-                <v-flex xs12 md4 sm8>
-                    <change-pass></change-pass>
-                </v-flex>
-            </v-layout>
-        </v-container>
-    </v-content>
+    <v-container v-else fluid grid-list-lg>
+        <v-layout row wrap align-center justify-center>
+            <v-flex xs12 md4 sm8>
+                <perfil-card :user="user" @update="submitData"></perfil-card>
+            </v-flex>
+            <v-flex xs12 md4 sm8>
+                <change-pass></change-pass>
+            </v-flex>
+        </v-layout>
+    </v-container>
 </template>
 
 <script>

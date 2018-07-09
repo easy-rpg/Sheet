@@ -1,37 +1,34 @@
 <template>
-    <v-content>
-        <v-container fluid fill-height>
-            <v-layout align-center justify-center>
-                <v-flex xs12 sm8 md4>
-                    <v-card class="elevation-12">
-                        <v-toolbar dark color="dark">
-                            <v-toolbar-title>Registration form</v-toolbar-title>
-                            <v-spacer></v-spacer>
-                        </v-toolbar>
-                        <v-card-text>
-                            <v-alert v-if="error_post" v-model="show_error_post" dismissible type="error">
-                                {{ error_post.response.status }}
-                            </v-alert>
-                            <v-alert v-if="error_auth" v-model="show_error_auth" dismissible type="error">
-                                {{ error_auth.response.data.non_field_errors[0] }}
-                            </v-alert>
+    <v-container fluid fill-height>
+        <v-layout align-center justify-center>
+            <v-flex xs12 sm8 md4>
+                <v-card class="elevation-12">
+                    <v-toolbar dark color="dark">
+                        <v-toolbar-title>Registration form</v-toolbar-title>
+                        <v-spacer></v-spacer>
+                    </v-toolbar>
+                    <v-card-text>
+                        <v-alert v-if="error_post" v-model="show_error_post" dismissible type="error">
+                            {{ error_post.response.status }}
+                        </v-alert>
+                        <v-alert v-if="error_auth" v-model="show_error_auth" dismissible type="error">
+                            {{ error_auth.response.data.non_field_errors[0] }}
+                        </v-alert>
 
-
-                            <v-text-field v-model="user.username" required prepend-icon="fa-user" name="username" label="Username" type="text"></v-text-field>
-                            <v-text-field v-model="user.password" required id="password" prepend-icon="fa-lock" name="password" label="Password" type="password"></v-text-field>
-                            <v-text-field v-model="user.email" required prepend-icon="fa-at" name="email" label="Email" type="text"></v-text-field>
-                            <v-text-field v-model="user.first_name" required prepend-icon="fa-info" name="first_name" label="First name" type="text"></v-text-field>
-                            <v-text-field v-model="user.last_name" required prepend-icon="fa-info" name="last_name" label="Last name" type="text"></v-text-field>
-                        </v-card-text>
-                        <v-card-actions>
-                            <v-spacer></v-spacer>
-                            <v-btn color="dark" @click="submit()">Register</v-btn>
-                        </v-card-actions>
-                    </v-card>
-                </v-flex>
-            </v-layout>
-        </v-container>
-    </v-content>
+                        <v-text-field v-model="user.username" required prepend-icon="fa-user" name="username" label="Username" type="text"></v-text-field>
+                        <v-text-field v-model="user.password" required id="password" prepend-icon="fa-lock" name="password" label="Password" type="password"></v-text-field>
+                        <v-text-field v-model="user.email" required prepend-icon="fa-at" name="email" label="Email" type="text"></v-text-field>
+                        <v-text-field v-model="user.first_name" required prepend-icon="fa-info" name="first_name" label="First name" type="text"></v-text-field>
+                        <v-text-field v-model="user.last_name" required prepend-icon="fa-info" name="last_name" label="Last name" type="text"></v-text-field>
+                    </v-card-text>
+                    <v-card-actions>
+                        <v-spacer></v-spacer>
+                        <v-btn color="dark" @click="submit()">Register</v-btn>
+                    </v-card-actions>
+                </v-card>
+            </v-flex>
+        </v-layout>
+    </v-container>
 </template>
 
 <script>

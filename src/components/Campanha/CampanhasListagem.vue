@@ -1,15 +1,25 @@
 <template>
-    <div v-if="loading">
-        <p>Loading...</p>
-    </div>
-    <div v-else>
-        <h1>Listagem Campanhas Mestrando</h1>
-        <hr>
-        {{ campanhas_mestrando }}
-        <h1>Listagem Campanhas Jogando</h1>
-        <hr>
-        {{ campanhas_jogando }}
-    </div>
+    <v-container v-if="loading" grid-list-xs,sm,md,lg,xl>
+        <v-layout row wrap>
+            <v-flex xs12>
+                Loading...
+            </v-flex>
+        </v-layout>
+    </v-container>
+    <v-container  v-else grid-list-xs,sm,md,lg,xl>
+        <v-layout row wrap>
+            <v-flex xs5>
+                <h1>Listagem Campanhas Mestrando</h1>
+                <hr>
+                {{ campanhas_mestrando }}
+            </v-flex>
+            <v-flex xs5 >
+                <h1>Listagem Campanhas Jogando</h1>
+                <hr>
+                {{ campanhas_jogando }}
+            </v-flex>
+        </v-layout>
+    </v-container>
 </template>
 
 <script>

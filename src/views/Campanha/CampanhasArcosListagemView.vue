@@ -1,7 +1,11 @@
 <template>
     <div>
-        <campanhas></campanhas>
-        <arcos></arcos>
+        <v-layout row wrap>
+            <campanhas></campanhas>
+        </v-layout>
+        <v-layout row wrap>
+            <arcos></arcos>
+        </v-layout>
     </div>
 </template>
 

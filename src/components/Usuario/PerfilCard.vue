@@ -58,7 +58,7 @@ export default {
         }
     },
     computed: {
-        
+
     },
     methods: {
         update () {
